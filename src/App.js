@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { AppContainer } from "./components";
+import { WeatherBox, LoadingScreen } from "./pages";
+// eslint-disable-next-line
+import { fetchLocalWeatherData, fetchOpenWeatherData } from "./store/actions";
+import { useDispatch, useSelector } from "react-redux";
 
-function App() {
+export const App = () => {
+  const { data, loading } = useSelector((state) => state.weather);
+  console.log({ REACT_APP_API_ENDPOINT: process.env.REACT_APP_API_ENDPOINT });
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    //dispatch(fetchWeather());
+    // load grouped weather objects
+    dispatch(fetchOpenWeatherData());
+    //dispatch(fetchLocalWeatherData());
+  }, [dispatch]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContainer>
+      {loading ? (
+        <LoadingScreen title='Loading...' />
+      ) : (
+        <WeatherBox weather={data} />
+      )}
+    </AppContainer>
   );
-}
-
-export default App;
+};
