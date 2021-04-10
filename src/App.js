@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 export const App = () => {
   const { data, loading } = useSelector((state) => state.weather);
-  console.log({ REACT_APP_API_ENDPOINT: process.env.REACT_APP_API_ENDPOINT });
+  console.log(process.env.REACT_APP_USERNAME);
   const dispatch = useDispatch();
 
   useEffect(() => {
