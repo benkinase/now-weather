@@ -1,3 +1,13 @@
+# Major reasons for using styled-components in this project
+
+1. Flexibility and more styling control
+2. Improved style containerization.
+3. Allow integration with external libraries e.g Material UI,styled-system
+4. Easy React integration - injection of custom properties
+5. Style Reusability
+
+#
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
