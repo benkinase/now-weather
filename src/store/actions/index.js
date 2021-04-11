@@ -1,1 +1,1 @@
-export { fetchOpenWeatherData, fetchLocalWeatherData } from "./weather";
+export { fetchOpenWeatherData } from "./weather";

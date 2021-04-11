@@ -1,9 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { AppContainer } from "./components";
 import { WeatherBox, LoadingScreen } from "./pages";
-// eslint-disable-next-line
-import { fetchLocalWeatherData, fetchOpenWeatherData } from "./store/actions";
-import { useDispatch, connect, useSelector } from "react-redux";
+import { fetchOpenWeatherData } from "./store/actions";
 
 class App extends React.Component {
   componentDidMount() {
@@ -15,9 +13,9 @@ class App extends React.Component {
     return (
       <AppContainer>
         {loading ? (
-          <LoadingScreen title='Loading...' data-testid='Loading' />
+          <LoadingScreen title='Loading...' />
         ) : (
-          <WeatherBox weather={data} data-testid='Weather' />
+          <WeatherBox weather={data} />
         )}
       </AppContainer>
     );
@@ -32,7 +30,7 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    getWeatherData: () => dispatch(fetchLocalWeatherData()),
+    getWeatherData: () => dispatch(fetchOpenWeatherData()),
   };
 };
 
