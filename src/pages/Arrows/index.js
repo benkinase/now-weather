@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { FlexContainer } from "../../components";
@@ -24,4 +25,10 @@ export const Arrows = ({
       />
     </FlexContainer>
   );
+};
+Arrows.propTypes = {
+  goToNextPage: PropTypes.func.isRequired,
+  goToPreviousPage: PropTypes.func.isRequired,
+  pages: PropTypes.number.isRequired,
+  currentIndex: PropTypes.number.isRequired,
 };

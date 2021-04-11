@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import { StyledCard } from "../../components";
@@ -39,4 +40,9 @@ export const WeatherCard = ({ renderChart, cardItem, cardIndex }) => {
       </CardContent>
     </StyledCard>
   );
+};
+WeatherCard.propTypes = {
+  renderChart: PropTypes.func.isRequired,
+  cardItem: PropTypes.object.isRequired,
+  cardIndex: PropTypes.number.isRequired,
 };

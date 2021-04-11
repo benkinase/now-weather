@@ -1,8 +1,8 @@
-import { render, screen } from "@testing-library/react";
+import React from "react";
+// Using the custom render function and not RTL's render
+import { render, fireEvent, screen, mockData } from "./test-utils";
 import App from "./App";
 
-test("renders learn react link", () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+it("Renders the connected app with initialState", () => {
+  render(<App />, { initialState: { weather: { data: mockData } } });
 });

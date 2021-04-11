@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import { WeatherContainer } from "../../components";
 import { convertToCelsius } from "../../helpers";
 import { CheckBox, VerticalChart } from "../index";
@@ -118,11 +119,15 @@ export const WeatherBox = ({ weather }) => {
       <CheckBox handleChange={handleChange} currentUnit={currentUnit} />
 
       <Pagination
-        pageSize={2}
+        pageSize={3}
         data={dayAverageTemp}
         renderChart={renderChart}
       />
       <VerticalChart chartData={chartData} />
     </WeatherContainer>
   );
+};
+
+WeatherBox.propTypes = {
+  weather: PropTypes.array.isRequired,
 };

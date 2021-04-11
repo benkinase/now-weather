@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import { BarChartContainer } from "../../components";
 
 //Component to render SVG chart
@@ -75,4 +76,7 @@ export const VerticalChart = ({ chartData }) => {
       </Chart>
     </BarChartContainer>
   );
+};
+VerticalChart.propTypes = {
+  chartData: PropTypes.array.isRequired,
 };

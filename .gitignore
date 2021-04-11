@@ -26,5 +26,7 @@ data.js
 .env
 stuffs.md
 /src/pages/Carousel
-.github
-build
+# .github
+/build
+gh-pages-actions
+gh-pages-actions.pub
