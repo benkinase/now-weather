@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
@@ -9,17 +9,17 @@ export const WeatherCard = ({ renderChart, cardItem, cardIndex }) => {
   const { unit, temp, feel, pres, date } = cardItem;
 
   // manage card index resetting on click
-  const [currentIndex, setIndex] = useState(0);
+  //const [currentIndex, setIndex] = useState(0);
 
   // initial chart rendering with index=0
-  useEffect(() => {
-    renderChart(currentIndex);
-  }, [currentIndex, unit]);
+  // useEffect(() => {
+  //   renderChart(currentIndex);
+  // }, [currentIndex, unit]);
 
   // call renderChart with supplied card index
   function renderWithNewId(newIndex) {
     renderChart(newIndex);
-    setIndex(newIndex);
+    //setIndex(newIndex);
   }
 
   return (

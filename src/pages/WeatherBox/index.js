@@ -94,15 +94,27 @@ export const WeatherBox = ({ weather }) => {
     setSelectedUnit(target.value);
   };
 
-  function renderChart(index) {
-    for (let arr of Object.keys(dayTemps)) {
-      for (let x of arr) {
-        if (Number(x) === Number(index)) {
-          setChartData(Object.values(dayTemps[index]));
+  // function renderChart(index) {
+  //   for (let arr of Object.keys(dayTemps)) {
+  //     for (let x of arr) {
+  //       if (Number(x) === Number(index)) {
+  //         setChartData(Object.values(dayTemps[index]));
+  //       }
+  //     }
+  //   }
+  // }
+  const renderChart = React.useCallback(
+    function (index) {
+      for (let arr of Object.keys(dayTemps)) {
+        for (let x of arr) {
+          if (Number(x) === Number(index)) {
+            setChartData(Object.values(dayTemps[index]));
+          }
         }
       }
-    }
-  }
+    },
+    [dayTemps]
+  );
   return (
     <WeatherContainer>
       <CheckBox handleChange={handleChange} currentUnit={currentUnit} />
