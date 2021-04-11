@@ -26,8 +26,7 @@ data.js
 .env
 stuffs.md
 
-
-# .github
+.github
 /build
 gh-pages-actions
 gh-pages-actions.pub
