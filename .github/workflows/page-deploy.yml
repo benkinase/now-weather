@@ -35,7 +35,8 @@ jobs:
         run: npm install
 
       - name: Deploy
-        run: git config --global user.name ${{secrets.USERNAME}}
+        run: |
+          git config --global user.name ${{secrets.USERNAME}}
           git config --global user.email ${{secrets.EMAIL}}
           git remote set-url origin https://${{secrets.PERSONAL_ACCESS_TOKEN}}@github.com/${{secrets.USERNAME}}/react-weather-app
           npm run deploy
