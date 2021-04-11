@@ -1,3 +1,5 @@
+https://github.com/benkinase/react-weather-app/workflows/page-deploy/badge.svg
+
 # Major reasons for using styled-components in this project
 
 1. Flexibility and more styling control
