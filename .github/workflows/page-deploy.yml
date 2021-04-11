@@ -16,7 +16,7 @@ jobs:
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         env:
-          REACT_APP_API_URL: ${{ secrets.REACT_APP_KEY }}
+          REACT_APP_API_KEY: ${{ secrets.REACT_APP_KEY }}
       - name: Variable to dotenv
         uses: CallePuzzle/envvar-to-dotenv-action@0.1.0
         with:
