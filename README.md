@@ -1,4 +1,4 @@
-https://github.com/benkinase/react-weather-app/workflows/page-deploy/badge.svg
+![React CI](https://github.com/benkinase/react-weather-ap/workflows/page-deploy.yml/badge.svg)
 
 # Major reasons for using styled-components in this project
 
