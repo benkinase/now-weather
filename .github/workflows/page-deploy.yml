@@ -22,6 +22,14 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           variableNamesByFilter: ^REACT\_(APP.\*)
+
+        - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
       - name: Install Packages
         run: npm install
       - name: Deploy to GH Pages
@@ -29,4 +37,4 @@ jobs:
         with:
           personal_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: build
+          publish_dir: ./build
