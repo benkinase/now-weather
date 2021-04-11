@@ -23,7 +23,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           variableNamesByFilter: ^REACT\_(APP.\*)
 
-        - name: Cache dependencies
+      - name: Cache dependencies
         uses: actions/cache@v1
         with:
           path: ~/.npm
