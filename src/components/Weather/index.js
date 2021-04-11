@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Paragraph } from "../Paragraph";
 
 // custom weather display container
 export const StyledWeather = styled.div`
@@ -24,7 +25,7 @@ export const StyledWeather = styled.div`
 `;
 
 // reuse WeatherContainer with display modification
-const StyledLoading = styled(StyledWeather)`
+const StyledCustom = styled(StyledWeather)`
   height: 600px;
   display: flex;
   align-items: center;
@@ -37,6 +38,11 @@ export const WeatherContainer = ({ children }) => {
   return <StyledWeather>{children}</StyledWeather>;
 };
 
-export const LoadingContainer = ({ children }) => {
-  return <StyledLoading>{children}</StyledLoading>;
+export const CustomContainer = ({ children, title }) => {
+  return (
+    <StyledCustom>
+      <Paragraph>{title}</Paragraph>
+      {children}
+    </StyledCustom>
+  );
 };

@@ -1,11 +1,11 @@
-import React from "react";
-import { LoadingContainer, Paragraph } from "../../components";
+// import React from "react";
+// import { CustomContainer, Paragraph } from "../../components";
 
-export const LoadingScreen = ({ title, children }) => {
-  return (
-    <LoadingContainer>
-      <Paragraph>{title}</Paragraph>
-      {children}
-    </LoadingContainer>
-  );
-};
+// export const LoadingScreen = ({ title, children }) => {
+//   return (
+//     <CustomContainer>
+//       <Paragraph>{title}</Paragraph>
+//       {children}
+//     </CustomContainer>
+//   );
+// };

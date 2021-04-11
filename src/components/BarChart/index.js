@@ -10,9 +10,15 @@ export const BarChartContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: var(--primary-color);
-
-  .highest {
-    background-color: var(--tertiary-color);
+  .time {
+    font-size: 17px;
+  }
+  .time {
+    position: absolute;
+    z-index: 100;
+  }
+  .temp-value {
+    position: relative;
   }
   .rect-stroke {
     stroke: var(--secondary-color);

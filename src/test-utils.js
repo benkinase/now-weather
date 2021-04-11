@@ -23,45 +23,34 @@ function render(
   return rtlRender(ui, { wrapper: Wrapper, ...renderOptions });
 }
 
-// re-export everything
+// re-export file
 export * from "@testing-library/react";
 // override RTL render method
 export { render };
+// mock state data
 export const mockData = {
   "2021-04-10": [
     {
-      dt: 1618185600,
       main: { temp: 285.66, feels_like: 284.22, pressure: 1018 },
-      dt_txt: "2021-04-10 12:00:00",
       day: "2021-04-10",
       time: " 12:00:00",
-      id: 1618056000,
     },
     {
-      dt: 1618185600,
-      main: { temp: 265.45, feels_like: 254.22, pressure: 1018 },
-      dt_txt: "2021-04-10 12:00:00",
+      main: { temp: 265.45, feels_like: 254.22, pressure: 1013 },
       day: "2021-04-10",
       time: " 12:00:00",
-      id: 1618056000,
     },
   ],
   "2021-04-11": [
     {
-      dt: 1618185600,
-      main: { temp: 285.66, feels_like: 284.22, pressure: 1018 },
-      dt_txt: "2021-04-10 12:00:00",
+      main: { temp: 285.66, feels_like: 284.22, pressure: 1048 },
       day: "2021-04-10",
       time: " 12:00:00",
-      id: 1618056000,
     },
     {
-      dt: 1618185600,
-      main: { temp: 265.45, feels_like: 254.22, pressure: 1018 },
-      dt_txt: "2021-04-10 12:00:00",
+      main: { temp: 265.45, feels_like: 254.22, pressure: 1015 },
       day: "2021-04-10",
       time: " 12:00:00",
-      id: 1618056000,
     },
   ],
 };

@@ -23,12 +23,6 @@ export const WeatherBox = ({ weather }) => {
   }, [weather, chartData, currentUnit]);
 
   // day of week vs averages(temperature and pressure)
-  // eslint-disable-next-line
-  function correctTemp(averageT) {
-    return averageT.unit === "fahrenheit"
-      ? averageT
-      : convertToCelsius(averageT);
-  }
 
   function findTempPressureAverages() {
     let currentWeatherArr = [];
@@ -51,19 +45,23 @@ export const WeatherBox = ({ weather }) => {
         .map((item) => item.main.pressure)
         .reduce((acc, cur) => acc + cur);
       const averagePressure = totalPressure / dateKeyArr.length;
-      // covert temp to celsius
-      const aveTempCelsius = convertToCelsius(averageTempF);
-      const aveFeelTempCelsius = convertToCelsius(averageFeel);
-      // toggle temp unit
-      const finalAveFeelLike = //correctTemp(averageFeel);
-        currentUnit === "fahrenheit" ? averageFeel : aveFeelTempCelsius;
-      const finalAverageTemp = //correctTemp(averageTempF);
-        currentUnit === "fahrenheit" ? averageTempF : aveTempCelsius;
+
+      // display correct temp based on unit
+      const averageTemp =
+        currentUnit === "fahrenheit"
+          ? averageTempF
+          : convertToCelsius(averageTempF);
+
+      const averageFeelLike =
+        currentUnit === "fahrenheit"
+          ? averageFeel
+          : convertToCelsius(averageFeel);
+
       // create a temp/press object for every date
       const tempObj = {
         unit: currentUnit,
-        temp: Number(finalAverageTemp).toFixed(1),
-        feel: Number(finalAveFeelLike).toFixed(2),
+        temp: Number(averageTemp).toFixed(1),
+        feel: Number(averageFeelLike).toFixed(2),
         pres: Number(averagePressure).toFixed(1),
         date,
       };
@@ -129,5 +127,5 @@ export const WeatherBox = ({ weather }) => {
 };
 
 WeatherBox.propTypes = {
-  weather: PropTypes.array.isRequired,
+  weather: PropTypes.object.isRequired,
 };

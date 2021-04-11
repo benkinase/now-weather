@@ -15,14 +15,19 @@ export const Chart = ({ children, width, height }) => (
   </svg>
 );
 
-export const Bar = ({ x, y, width, unit, height, highestTemp }) => {
+export const Bar = ({ x, y, width, time, unit, height, highestTemp }) => {
   const tUnit = unit === "fahrenheit" ? "°F" : "°C";
+  const yOffset = unit === "fahrenheit" ? 25 : 60;
   return (
     <React.Fragment>
       <text x={x + width / 25} y={y - 20} className='temp-value'>
-        {height.toFixed(0)}
+        {height.toFixed(1)}
         {tUnit}
       </text>
+      <text x={x + width / 25} y={yOffset} className='time'>
+        {time.substring(0, 6)}
+      </text>
+
       <rect
         x={x}
         y={y}
@@ -30,7 +35,7 @@ export const Bar = ({ x, y, width, unit, height, highestTemp }) => {
         ry='5'
         width={width}
         height={height}
-        fill={highestTemp === height ? `highest` : `var(--primary-color)`}
+        fill={highestTemp === height ? `#e0e0e0` : `var(--primary-color)`}
         className='rect-stroke'
       />
     </React.Fragment>
@@ -54,7 +59,7 @@ export const VerticalChart = ({ chartData }) => {
   let width = numberOfBars * (barWidth + barMargin);
 
   // Calculate highest temperature for a day
-  const highestTemp = Math.max(...chartData.map((d) => d.temp));
+  const highestTemp = Math.max(...chartData.map((data) => data.temp));
 
   return (
     <BarChartContainer>
@@ -69,6 +74,7 @@ export const VerticalChart = ({ chartData }) => {
               width={barWidth}
               height={barHeight}
               unit={data.unit}
+              time={data.time}
               highestTemp={highestTemp}
             />
           );

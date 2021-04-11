@@ -13,14 +13,12 @@ export const Arrows = ({
   return (
     <FlexContainer margin='20px' space='space-between'>
       <ArrowBackIcon
-        className={`arrow arrow-left ${currentPage === 1 ? "disabled" : ""}`}
+        className={`arrow prev ${currentPage === 1 && "hide"}`}
         onClick={() => goToPreviousPage()}
       />
 
       <ArrowForwardIcon
-        className={`arrow arrow-right ${
-          currentPage === pages ? "disabled" : ""
-        }`}
+        className={`arrow next ${currentPage === pages && "hide"}`}
         onClick={() => goToNextPage()}
       />
     </FlexContainer>
@@ -30,5 +28,5 @@ Arrows.propTypes = {
   goToNextPage: PropTypes.func.isRequired,
   goToPreviousPage: PropTypes.func.isRequired,
   pages: PropTypes.number.isRequired,
-  currentIndex: PropTypes.number.isRequired,
+  currentPage: PropTypes.number.isRequired,
 };

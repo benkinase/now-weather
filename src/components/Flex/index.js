@@ -8,14 +8,14 @@ export const FlexContainer = styled.div`
   position: relative;
   margin: ${(props) => props.margin};
 
-  .disabled {
+  .hide {
     display: none;
   }
   .arrow {
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     position: absolute;
   }
-  .arrow-right {
+  .next {
     right: 0;
   }
   .arrow:hover {
