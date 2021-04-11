@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Radio from "@material-ui/core/Radio";
 import { FlexContainer, Wrapper, Label } from "../../components";
 
@@ -27,4 +28,8 @@ export const CheckBox = ({ currentUnit, handleChange }) => {
       </Wrapper>
     </FlexContainer>
   );
+};
+CheckBox.prototypes = {
+  currentUnit: PropTypes.number.isRequired,
+  handleChange: PropTypes.func.isRequired,
 };

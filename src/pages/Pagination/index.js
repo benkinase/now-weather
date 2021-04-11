@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import { WeatherCard, Arrows } from "../index";
 import { GridContainer } from "../../components";
 
@@ -50,4 +51,9 @@ export const Pagination = (props) => {
       </GridContainer>
     </React.Fragment>
   );
+};
+Pagination.prototypes = {
+  data: PropTypes.array.isRequired,
+  pageSize: PropTypes.number.isRequired,
+  renderChart: PropTypes.func.isRequired,
 };
