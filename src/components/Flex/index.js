@@ -7,6 +7,7 @@ export const FlexContainer = styled.div`
   align-items: center;
   position: relative;
   margin: ${(props) => props.margin};
+  margin-top: ${(props) => props.mt};
 
   .hide {
     display: none;

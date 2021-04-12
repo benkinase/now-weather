@@ -11,7 +11,7 @@ export const Arrows = ({
   currentPage,
 }) => {
   return (
-    <FlexContainer margin='20px' space='space-between'>
+    <FlexContainer margin='10px' space='space-between'>
       <ArrowBackIcon
         className={`arrow prev ${currentPage === 1 && "hide"}`}
         onClick={() => goToPreviousPage()}

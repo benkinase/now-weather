@@ -1,5 +1,14 @@
 // convert t to celsius
 export const convertToCelsius = (value) => (value - 32) / 1.8;
+
+// get correct temp
+export const correctTemp = (temp, unit) => {
+  return unit === "fahrenheit" ? temp : convertToCelsius(temp);
+};
+// get correct unit
+export const correctUnit = (unit) => {
+  return unit === "fahrenheit" ? "°F" : "°C";
+};
 // get date from data
 export const getDay = (date) => {
   return date.substring(0, 10);
@@ -31,4 +40,5 @@ export function groupBy(key) {
     }, {});
   };
 }
+// API URL
 export const API_URL = `https://api.openweathermap.org/data/2.5/forecast?q=Munich,de&APPID=${process.env.REACT_APP_KEY}&cnt=40`;

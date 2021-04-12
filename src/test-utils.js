@@ -54,3 +54,17 @@ export const mockData = {
     },
   ],
 };
+export const mockItems = [
+  {
+    temp: 265.45,
+    feels: 254.22,
+    pres: 1013,
+    time: " 12:00:00",
+  },
+  {
+    temp: 275.31,
+    feels: 274.24,
+    pres: 1029,
+    time: " 15:00:00",
+  },
+];

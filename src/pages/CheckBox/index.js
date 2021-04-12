@@ -5,7 +5,7 @@ import { FlexContainer, Wrapper, Label } from "../../components";
 
 export const CheckBox = ({ currentUnit, handleChange }) => {
   return (
-    <FlexContainer space='space-around'>
+    <FlexContainer space='space-around' mt='10px'>
       <Wrapper>
         <Radio
           checked={currentUnit === "celsius"}
@@ -14,7 +14,7 @@ export const CheckBox = ({ currentUnit, handleChange }) => {
           name='radio-button-demo'
           color='primary'
         />
-        <Label>Celsius</Label>
+        <Label data-testid='Cel'>Celsius</Label>
       </Wrapper>
       <Wrapper>
         <Radio
@@ -24,12 +24,12 @@ export const CheckBox = ({ currentUnit, handleChange }) => {
           name='radio-button-demo'
           color='primary'
         />
-        <Label>Fahrenheit</Label>
+        <Label data-testid='Fah'>Fahrenheit</Label>
       </Wrapper>
     </FlexContainer>
   );
 };
-CheckBox.prototypes = {
-  currentUnit: PropTypes.number.isRequired,
-  handleChange: PropTypes.func.isRequired,
+CheckBox.propTypes = {
+  currentUnit: PropTypes.string.isRequired,
+  handleChange: PropTypes.func,
 };

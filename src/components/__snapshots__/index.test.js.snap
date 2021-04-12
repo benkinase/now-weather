@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it works 1`] = `
+.c0 {
+  font-size: 14px;
+  margin: 2px;
+  text-align: justify;
+}
+
+<div>
+  <p
+    class="c0"
+  />
+</div>
+`;

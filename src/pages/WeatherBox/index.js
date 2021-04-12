@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { WeatherContainer } from "../../components";
-import { convertToCelsius } from "../../helpers";
+import { correctTemp } from "../../helpers";
 import { CheckBox, VerticalChart } from "../index";
 import { Pagination } from "../Pagination";
+import { useDispatch } from "react-redux";
 
 export const WeatherBox = ({ weather }) => {
   // local states
-  const [dayAverageTemp, setDayAverageTemp] = useState([]);
-  const [dayTemps, setDayTemps] = useState([]);
+  // calculated average temperature and pressure for a day
+  const [dayAverages, setDayAverages] = useState([]);
   const [currentUnit, setSelectedUnit] = useState("fahrenheit");
-  const [chartData, setChartData] = useState([]);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     // day of week vs averages(temperature and pressure)
@@ -23,28 +25,26 @@ export const WeatherBox = ({ weather }) => {
         const totalTempF = dateKeyArr
           .map((item) => item.main.temp)
           .reduce((acc, cur) => acc + cur);
+
+        // Average day temperature in fahrenheit
         const averageTempF = totalTempF / dateKeyArr.length;
 
         const totalFeelTemp = dateKeyArr
           .map((item) => item.main.feels_like)
           .reduce((acc, cur) => acc + cur);
+
+        // Average day temperature (feels_like) in fahrenheit
         const averageFeel = totalFeelTemp / dateKeyArr.length;
-        //pressure
+
+        // Average pressure in Pascal
         const totalPressure = dateKeyArr
           .map((item) => item.main.pressure)
           .reduce((acc, cur) => acc + cur);
         const averagePressure = totalPressure / dateKeyArr.length;
 
-        // display correct temp based on unit
-        const averageTemp =
-          currentUnit === "fahrenheit"
-            ? averageTempF
-            : convertToCelsius(averageTempF);
-
-        const averageFeelLike =
-          currentUnit === "fahrenheit"
-            ? averageFeel
-            : convertToCelsius(averageFeel);
+        // display correct temperature based on unit
+        const averageTemp = correctTemp(averageTempF, currentUnit);
+        const averageFeelLike = correctTemp(averageFeel, currentUnit);
 
         // create a temp/press object for every date
         const tempObj = {
@@ -56,7 +56,7 @@ export const WeatherBox = ({ weather }) => {
         };
         currentWeatherArr.push(tempObj);
       }
-      setDayAverageTemp(currentWeatherArr);
+      setDayAverages(currentWeatherArr);
     }
     findTempPressureAverages();
     return () => {};
@@ -65,7 +65,7 @@ export const WeatherBox = ({ weather }) => {
   useEffect(() => {
     // time of day vs temperature
     // Bar chart data
-    function findDayTemps() {
+    function getDayTemps() {
       let currentDayTemps = [];
       for (let day of Object.keys(weather)) {
         const dayArr = Object.values(weather[day]);
@@ -74,56 +74,32 @@ export const WeatherBox = ({ weather }) => {
         const tempObj = tempArr.map((_, index) => {
           return {
             unit: currentUnit,
-            temp:
-              currentUnit === "fahrenheit"
-                ? Number(tempArr[index])
-                : convertToCelsius(Number(tempArr[index])),
+            temp: correctTemp(Number(tempArr[index]), currentUnit),
             time: timeArr[index],
           };
         });
         currentDayTemps.push(tempObj);
       }
-      setDayTemps(currentDayTemps);
+      //dispatch calculated (3hr) interval day temperatures to store
+      dispatch({
+        type: "DAY_TEMPS_SUCCESS",
+        payload: currentDayTemps,
+      });
     }
-    findDayTemps();
+    getDayTemps();
     return () => {};
-  }, [weather, chartData, currentUnit]);
+  }, [weather, currentUnit, dispatch]);
 
   // handle temperature unit toggling
   const handleChange = ({ target }) => {
     setSelectedUnit(target.value);
   };
 
-  // function renderChart(index) {
-  //   for (let arr of Object.keys(dayTemps)) {
-  //     for (let x of arr) {
-  //       if (Number(x) === Number(index)) {
-  //         setChartData(Object.values(dayTemps[index]));
-  //       }
-  //     }
-  //   }
-  // }
-  const renderChart = React.useCallback(
-    function (index) {
-      for (let arr of Object.keys(dayTemps)) {
-        for (let x of arr) {
-          if (Number(x) === Number(index)) {
-            setChartData(Object.values(dayTemps[index]));
-          }
-        }
-      }
-    },
-    [dayTemps]
-  );
   return (
     <WeatherContainer>
       <CheckBox handleChange={handleChange} currentUnit={currentUnit} />
-      <Pagination
-        pageSize={3}
-        data={dayAverageTemp}
-        renderChart={renderChart}
-      />
-      <VerticalChart chartData={chartData} />
+      <Pagination pageSize={3} data={dayAverages} />
+      <VerticalChart />
     </WeatherContainer>
   );
 };

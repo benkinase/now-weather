@@ -8,7 +8,7 @@ export const StyledWeather = styled.div`
   min-height: 20vh;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 0.5fr 2fr 1.5fr;
+  grid-template-rows: 0.2fr 1fr 0.8fr;
   row-gap: 10px;
   padding: 10px;
   margin: 2rem auto;

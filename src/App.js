@@ -5,7 +5,7 @@ import { fetchOpenWeatherData } from "./store/actions";
 import { connect } from "react-redux";
 
 class App extends React.Component {
-  // get weather data upon component mounting
+  // get open weather data upon component mounting
   componentDidMount() {
     this.props.getWeatherData();
   }
@@ -22,7 +22,7 @@ class App extends React.Component {
     );
   }
 }
-// connect component to state and actions
+// connect component to store (state and actions)
 const mapStateToProps = (state) => {
   return {
     data: state.weather.data,

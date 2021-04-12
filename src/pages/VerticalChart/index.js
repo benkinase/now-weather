@@ -1,50 +1,14 @@
 import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
 import { BarChartContainer } from "../../components";
+import { useSelector } from "react-redux";
+import { Bar } from "./Bar";
+import { Chart } from "./Chart";
 
-//Component to render SVG chart
-
-export const Chart = ({ children, width, height }) => (
-  <svg
-    viewBox={`0 0 ${width} ${height}`}
-    width='100%'
-    height='70%'
-    preserveAspectRatio='xMidYMax meet'
-  >
-    {children}
-  </svg>
-);
-
-export const Bar = ({ x, y, width, time, unit, height, highestTemp }) => {
-  const tUnit = unit === "fahrenheit" ? "°F" : "°C";
-  const yOffset = unit === "fahrenheit" ? 25 : 60;
-  return (
-    <React.Fragment>
-      <text x={x + width / 25} y={y - 20} className='temp-value'>
-        {height.toFixed(1)}
-        {tUnit}
-      </text>
-      <text x={x + width / 25} y={yOffset} className='time'>
-        {time.substring(0, 6)}
-      </text>
-
-      <rect
-        x={x}
-        y={y}
-        rx='5'
-        ry='5'
-        width={width}
-        height={height}
-        fill={highestTemp === height ? `#e0e0e0` : `var(--primary-color)`}
-        className='rect-stroke'
-      />
-    </React.Fragment>
-  );
-};
-
-export const VerticalChart = ({ chartData }) => {
+// Parent chart component
+export const VerticalChart = () => {
+  const { chartData } = useSelector((state) => state.chartData);
+  // set array length
   const [length, setLength] = useState(0);
-
   // component mounting, set length
   useEffect(() => {
     setLength(chartData.length);
@@ -56,9 +20,9 @@ export const VerticalChart = ({ chartData }) => {
   const barWidth = 50;
   const barMargin = 30;
   const numberOfBars = length;
-  let width = numberOfBars * (barWidth + barMargin);
+  const width = numberOfBars * (barWidth + barMargin);
 
-  // Calculate highest temperature for a day
+  // Calculate highest temperature in a day (interval::3hrs)
   const highestTemp = Math.max(...chartData.map((data) => data.temp));
 
   return (
@@ -82,7 +46,4 @@ export const VerticalChart = ({ chartData }) => {
       </Chart>
     </BarChartContainer>
   );
-};
-VerticalChart.propTypes = {
-  chartData: PropTypes.array.isRequired,
 };

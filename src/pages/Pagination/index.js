@@ -3,9 +3,8 @@ import PropTypes from "prop-types";
 import { WeatherCard, Arrows } from "../index";
 import { GridContainer } from "../../components";
 
-export const Pagination = (props) => {
+export const Pagination = ({ data, pageSize }) => {
   // destructuring data prop
-  const { data, pageSize, renderChart } = props;
   const dataLimit = data.length;
 
   // local state to manage pages and current page
@@ -29,6 +28,7 @@ export const Pagination = (props) => {
     const paginatedItems = data.slice(start, end);
     return paginatedItems;
   }
+
   return (
     <React.Fragment>
       <Arrows
@@ -40,12 +40,7 @@ export const Pagination = (props) => {
       <GridContainer gridColumns='repeat(3, 1fr)'>
         {getPaginatedData().map((cardItem, index) => {
           return (
-            <WeatherCard
-              cardItem={cardItem}
-              cardIndex={index}
-              key={index}
-              renderChart={renderChart}
-            />
+            <WeatherCard cardItem={cardItem} cardIndex={index} key={index} />
           );
         })}
       </GridContainer>
@@ -55,5 +50,5 @@ export const Pagination = (props) => {
 Pagination.prototypes = {
   data: PropTypes.array.isRequired,
   pageSize: PropTypes.number.isRequired,
-  renderChart: PropTypes.func.isRequired,
+  renderChart: PropTypes.func,
 };
