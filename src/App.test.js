@@ -6,7 +6,7 @@ import App from "./App";
 describe("APP Test Suite", () => {
   it("Renders the store connected app with initialState", () => {
     const { container } = render(<App />, {
-      initialState: { weather: { data: mockData } },
+      initialState: { weather: { data: {} } },
     });
     expect(container).toBeInTheDocument();
   });

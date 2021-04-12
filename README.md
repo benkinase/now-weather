@@ -1,4 +1,4 @@
-![React CI/CD](https://github.com/benkinase/react-weather-ap/workflows/page-deploy.yml/badge.svg)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f8f53bbc-02a7-46f6-a8a8-30b563ec5c88/deploy-status)](https://app.netlify.com/sites/temp26/deploys)
 
 # Major reasons for using styled-components in this project
 

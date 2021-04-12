@@ -1,12 +1,11 @@
-import { render, fireEvent } from "@testing-library/react";
-
+import { render } from "../../test-utils";
 import { CheckBox } from "./index";
 
 const props = {
   handleChange: jest.fn(),
   currentUnit: "fahrenheit",
 };
-describe("<CheckBox />", () => {
+describe("CheckBox Test Suite", () => {
   test("render component with props", () => {
     const { container, getByTestId } = render(<CheckBox {...props} />);
 

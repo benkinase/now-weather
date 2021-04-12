@@ -13,6 +13,7 @@ export const CheckBox = ({ currentUnit, handleChange }) => {
           value='celsius'
           name='radio-button-demo'
           color='primary'
+          data-testid='to-select'
         />
         <Label data-testid='Cel'>Celsius</Label>
       </Wrapper>
