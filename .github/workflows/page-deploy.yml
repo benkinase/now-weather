@@ -1,4 +1,4 @@
-name: Deploy to github pages
+name: React CI/CD
 on:
   push:
     branches: [main]
@@ -15,14 +15,8 @@ jobs:
       - uses: actions/checkout@v1
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
-        env:
-          REACT_APP_API_KEY: ${{ secrets.REACT_APP_KEY }}
-      - name: Variable to dotenv
-        uses: CallePuzzle/envvar-to-dotenv-action@0.1.0
         with:
           node-version: ${{ matrix.node-version }}
-          variableNamesByFilter: ^REACT\_(APP.\*)
-
       - name: Cache dependencies
         uses: actions/cache@v1
         with:
@@ -32,9 +26,15 @@ jobs:
             ${{ runner.os }}-node-
       - name: Install Packages
         run: npm install
-      - name: Deploy to GH Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Build application
+        run: npm build --if present
+        env:
+          REACT_APP_API_KEY: ${{ secrets.REACT_APP_KEY }}
+      - name: Deploy Site to netlify
+        uses: netlify/actions/cli@master
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         with:
-          personal_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: ./build
+          args: deploy --dir=build --prod
+          secrets: '["NETLIFY_AUTH_TOKEN","NETLIFY_SITE_ID"]'

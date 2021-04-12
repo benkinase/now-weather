@@ -17,7 +17,6 @@
 .env.development.local
 .env.test.local
 .env.production.local
-.env.prod
 .env.dev
 npm-debug.log*
 yarn-debug.log*
@@ -26,7 +25,7 @@ data.js
 .env
 stuffs.md
 
-.github
+#.github
 /build
 gh-pages-actions
 gh-pages-actions.pub

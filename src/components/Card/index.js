@@ -13,6 +13,9 @@ export const StyledCard = styled(Card)`
     opacity: 0.85;
     box-shadow: var(--mainShadow);
   }
+  &&:focus {
+    box-shadow: var(--mainShadow);
+  }
   .value {
     font-size: 14px;
   }
