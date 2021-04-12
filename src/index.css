@@ -12,6 +12,3 @@ body {
   background-color: var(--primary-color);
   color: var(--tertiary-color);
 }
-.active {
-  background-color: #1a3452;
-}

@@ -47,7 +47,7 @@ export const Pagination = ({ data, pageSize }) => {
     </React.Fragment>
   );
 };
-Pagination.prototypes = {
+Pagination.propTypes = {
   data: PropTypes.array.isRequired,
   pageSize: PropTypes.number.isRequired,
   renderChart: PropTypes.func,

@@ -11,7 +11,7 @@ export const WeatherCard = ({ cardItem, cardIndex }) => {
   const dispatch = useDispatch();
   // destructuring cardItem prop
   const { unit, temp, feel, pres, date } = cardItem;
-  const [initial, setInitial] = useState(-1);
+
   // manage card index resetting on click
   const [currentIndex, setCurrent] = useState(0);
 
@@ -23,7 +23,6 @@ export const WeatherCard = ({ cardItem, cardIndex }) => {
   // call renderChart with supplied card index
   function renderWithNewId(newIndex) {
     fetchCharts(newIndex);
-    setInitial(newIndex);
     setCurrent(newIndex);
   }
 
@@ -41,13 +40,7 @@ export const WeatherCard = ({ cardItem, cardIndex }) => {
   }
 
   return (
-    <StyledCard
-      variant='outlined'
-      onClick={() => renderWithNewId(cardIndex)}
-      className={
-        cardIndex === currentIndex || (cardIndex === initial && "active")
-      }
-    >
+    <StyledCard variant='outlined' onClick={() => renderWithNewId(cardIndex)}>
       <CardContent>
         <Typography
           className='value'

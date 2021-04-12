@@ -15,9 +15,7 @@ export const StyledCard = styled(Card)`
     opacity: 0.85;
     box-shadow: var(--mainShadow);
   }
-  active {
-    border: 2px dotted red;
-  }
+
   .value {
     font-size: 14px;
   }
