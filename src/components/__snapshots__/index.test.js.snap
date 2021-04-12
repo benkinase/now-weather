@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`render component structure and styles 1`] = `
+exports[`Styled Components test Suite render component structure/snapshot 1`] = `
 .c0 {
   font-size: 14px;
   margin: 2px;

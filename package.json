@@ -20,6 +20,10 @@
     "styled-components": "^5.2.3",
     "web-vitals": "^1.1.1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/benkinase/react-weather-app.git"
+  },
   "author": {
     "name": "Benjamin Gbenimako",
     "portfolio": "https://gbenimako.com"

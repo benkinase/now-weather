@@ -5,7 +5,7 @@ const props = {
   data: mockItems,
   pageSize: 3,
 };
-describe("<VerticalChart />", () => {
+describe("Pagination Test Suite", () => {
   test("render component with props", () => {
     const { container } = render(<Pagination {...props} />);
 

@@ -1,7 +1,7 @@
-import { render, screen } from "../../test-utils";
+import { render } from "../../test-utils";
 import { VerticalChart } from "./index";
 
-describe("< VerticalChart />", () => {
+describe("VerticalChart component test Suite", () => {
   test("render component", () => {
     const { container } = render(<VerticalChart />);
 

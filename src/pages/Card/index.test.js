@@ -6,7 +6,7 @@ const props = {
   cardItem: mockItems[0],
   cardIndex: 1,
 };
-describe("<WeatherCard />", () => {
+describe("WeatherCard Test Suite", () => {
   test("render component with props", () => {
     const { getAllByText, getByTestId, container } = render(
       <WeatherCard {...props} />

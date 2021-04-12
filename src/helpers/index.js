@@ -1,23 +1,23 @@
-// convert t to celsius
+// convert temp to celsius
 export const convertToCelsius = (value) => (value - 32) / 1.8;
 
 // get correct temp
 export const correctTemp = (temp, unit) => {
   return unit === "fahrenheit" ? temp : convertToCelsius(temp);
 };
-// get correct unit
+// display the correct unit
 export const correctUnit = (unit) => {
   return unit === "fahrenheit" ? "°F" : "°C";
 };
-// get date from data
+// get date from external data
 export const getDay = (date) => {
   return date.substring(0, 10);
 };
-// get time from data
+// get time from external data
 export const getTime = (date) => {
   return date.substring(10);
 };
-// format data , modify day and time properties
+// format external data, modify day and time properties
 export function openWeatherDataFormatter(items) {
   const tempItems = items.list.map((item) => {
     const id = item.dt;
@@ -29,7 +29,7 @@ export function openWeatherDataFormatter(items) {
   return tempItems;
 }
 //function to group weather objects by date
-// in order to calculate respective temp averages
+// in order to calculate respective temp and pressure averages
 export function groupBy(key) {
   return function group(array) {
     return array.reduce((acc, obj) => {
