@@ -20,7 +20,7 @@ jobs:
       - name: Install Packages
         run: npm install
       - name: Build application
-        run: npm build
+        run: npm run react-scripts build
         env:
           REACT_APP_KEY: ${{ secrets.REACT_APP_KEY }}
       - name: Deploy Site to netlify
@@ -30,4 +30,3 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         with:
           args: deploy --dir=build --prod
-          secrets: '["NETLIFY_AUTH_TOKEN","NETLIFY_SITE_ID"]'
