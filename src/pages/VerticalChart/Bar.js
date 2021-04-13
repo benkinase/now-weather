@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import { correctUnit } from "../../helpers";
 
 // Component to render single bar (temp value::height)
-export const Bar = ({ x, y, width, time, unit, height, highestTemp }) => {
-  const yOffset = unit === "fahrenheit" ? 25 : 20;
+export const Bar = ({ x, y, width, time, unit, height }) => {
+  const yOffset = unit === "celsius" ? 20 : 25;
   // scale down to actual height values
-  const actualHeight = unit === "celsius" ? height / 30 : height / 5;
+  const actualHeight = unit === "celsius" ? height / 25 : height / 5;
   return (
     <React.Fragment>
       <text x={x + width / 30} y={y - 20} className='temp'>
@@ -24,7 +24,7 @@ export const Bar = ({ x, y, width, time, unit, height, highestTemp }) => {
         ry='5'
         width={width}
         height={height}
-        fill={highestTemp === height ? `#e0e0e0` : `var(--primary-color)`}
+        fill={`var(--primary-color)`}
         className='rect-stroke'
       />
     </React.Fragment>

@@ -6,7 +6,7 @@
 2. Improved style containerization.
 3. Integration and extensibility with external libraries e.g Material UI, styled-system
 4. Easy React integration - injection of custom properties
-5. Style Reusability
+5. Style reusability
 
 #
 
