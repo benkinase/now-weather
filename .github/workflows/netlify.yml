@@ -20,7 +20,7 @@ jobs:
       - name: Install Packages
         run: npm install
       - name: Build application
-        run: npm run react-scripts build
+        run: npm react-scripts build
         env:
           REACT_APP_KEY: ${{ secrets.REACT_APP_KEY }}
       - name: Deploy Site to netlify
