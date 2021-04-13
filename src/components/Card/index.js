@@ -10,6 +10,7 @@ export const StyledCard = styled(Card)`
   justify-content: center;
   transition: var(--mainTransition);
   cursor: pointer;
+  border: 2px solid var(--secondary-color) !important;
 
   &&:hover {
     opacity: 0.85;

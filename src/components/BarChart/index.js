@@ -25,8 +25,8 @@ export const BarChartContainer = styled.div`
   margin: auto;
   padding: 10px;
   display: flex;
-  animation: ${slideUp} 3s ease-in forwards;
-  flex-direction: column;
+  //animation: ${slideUp} 3s ease-in forwards;
+  flex-direction: ${(props) => props.direction};
   justify-content: center;
   align-items: center;
   background-color: var(--primary-color);

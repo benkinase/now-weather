@@ -1,10 +1,15 @@
-// convert temp to celsius
+// kelvin to fahrenheit
+export function convertToFahrenheit(temp) {
+  return 1.8(temp - 273) + 32;
+}
+// fahrenheit to celsius
 export const convertToCelsius = (value) => (value - 32) / 1.8;
 
 // get correct temp
 export const correctTemp = (temp, unit) => {
   return unit === "fahrenheit" ? temp : convertToCelsius(temp);
 };
+
 // display the correct unit
 export const correctUnit = (unit) => {
   return unit === "fahrenheit" ? "°F" : "°C";
@@ -41,4 +46,4 @@ export function groupBy(key) {
   };
 }
 // API URL
-export const API_URL = `https://api.openweathermap.org/data/2.5/forecast?q=Munich,de&APPID=${process.env.REACT_APP_KEY}&cnt=40`;
+export const API_URL = `https://api.openweathermap.org/data/2.5/forecast?q=Munich,de&units=imperial&APPID=${process.env.REACT_APP_KEY}&cnt=40`;

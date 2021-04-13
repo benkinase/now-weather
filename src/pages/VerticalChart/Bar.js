@@ -4,15 +4,17 @@ import { correctUnit } from "../../helpers";
 
 // Component to render single bar (temp value::height)
 export const Bar = ({ x, y, width, time, unit, height, highestTemp }) => {
-  const yOffset = unit === "fahrenheit" ? 25 : 60;
+  const yOffset = unit === "fahrenheit" ? 25 : 20;
+  // scale down to actual height values
+  const actualHeight = unit === "celsius" ? height / 30 : height / 5;
   return (
     <React.Fragment>
       <text x={x + width / 30} y={y - 20} className='temp'>
-        {height.toFixed(1)}
+        {actualHeight.toFixed(2)}
         {correctUnit(unit)}
       </text>
       <text x={x + width / 25} y={yOffset} className='time'>
-        {time.substring(0, 6)}
+        {time}
       </text>
 
       <rect

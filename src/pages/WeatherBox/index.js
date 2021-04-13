@@ -75,7 +75,7 @@ export const WeatherBox = ({ weather }) => {
           return {
             unit: currentUnit,
             temp: correctTemp(Number(tempArr[index]), currentUnit),
-            time: timeArr[index],
+            time: timeArr[index].substring(0, 6),
           };
         });
         currentDayTemps.push(tempObj);
