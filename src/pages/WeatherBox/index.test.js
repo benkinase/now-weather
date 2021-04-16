@@ -5,7 +5,7 @@ const props = {
   weather: mockData,
 };
 
-describe("WeatherBox test Suite", () => {
+describe("WeatherBox Test Suite", () => {
   test("render component with props", () => {
     const { container } = render(<WeatherBox {...props} />);
 

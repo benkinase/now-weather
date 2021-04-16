@@ -8,9 +8,7 @@ const props = {
 };
 describe("WeatherCard Test Suite", () => {
   test("render component with props", () => {
-    const { getAllByText, getByTestId, container } = render(
-      <WeatherCard {...props} />
-    );
+    const { getByTestId, container } = render(<WeatherCard {...props} />);
     expect(container).toBeInTheDocument();
     const elem = getByTestId("temp");
     expect(elem.innerHTML).toBe("Temp: 265.45 °C");

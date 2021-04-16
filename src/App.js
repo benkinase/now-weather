@@ -1,8 +1,8 @@
 import React from "react";
+import { connect } from "react-redux";
 import { AppContainer, CustomContainer } from "./components";
 import { WeatherBox } from "./pages";
 import { fetchOpenWeatherData } from "./store/actions";
-import { connect } from "react-redux";
 
 class App extends React.Component {
   // get open weather data upon component mounting
