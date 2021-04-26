@@ -50,5 +50,4 @@ export const Pagination = ({ data, pageSize }) => {
 Pagination.propTypes = {
   data: PropTypes.array.isRequired,
   pageSize: PropTypes.number.isRequired,
-  renderChart: PropTypes.func,
 };
