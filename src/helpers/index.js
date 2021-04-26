@@ -46,4 +46,4 @@ export function groupBy(key) {
   };
 }
 // API URL
-export const API_URL = `https://api.openweathermap.org/data/2.5/forecast?q=Munich,de&units=imperial&APPID=${process.env.REACT_APP_KEY}&cnt=40`;
+export const API_URL = `https://api.openweathermap.org/data/2.5/forecast?q=Berlin,de&units=imperial&APPID=${process.env.REACT_APP_KEY}&cnt=40`;
