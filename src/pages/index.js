@@ -4,3 +4,4 @@ export { CheckBox } from "./CheckBox";
 export { Arrows } from "./Arrows";
 export { WeatherCard } from "./Card";
 export { Pagination } from "./Pagination";
+export { City } from "./City";

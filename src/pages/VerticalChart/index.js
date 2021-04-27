@@ -28,7 +28,7 @@ export const VerticalChart = () => {
         {chartData.map((data, index) => {
           // scale up barHeight to accommodate some low value
           const barHeight =
-            data.unit === "celsius" ? data.temp * 25 : data.temp * 5;
+            data.unit === "celsius" ? data.temp * 5 : data.temp * 2;
 
           return (
             <Bar

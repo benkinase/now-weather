@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { WeatherContainer } from "../../components";
 import { correctTemp } from "../../helpers";
-import { CheckBox, VerticalChart } from "../index";
+import { CheckBox, VerticalChart, City } from "../index";
 import { Pagination } from "../Pagination";
 import { useDispatch } from "react-redux";
 
-export const WeatherBox = ({ weather }) => {
+export const WeatherBox = (props) => {
+  const { weather, cities, city, handleCity } = props;
   // local states
   // calculated average temperature and pressure for a day
   const [dayAverages, setDayAverages] = useState([]);
@@ -49,9 +50,9 @@ export const WeatherBox = ({ weather }) => {
         // create a temp/press object for every date
         const tempObj = {
           unit: currentUnit,
-          temp: Number(averageTemp).toFixed(1),
-          feel: Number(averageFeelLike).toFixed(2),
-          pres: Number(averagePressure).toFixed(1),
+          temp: +averageTemp.toFixed(1),
+          feel: +averageFeelLike.toFixed(2),
+          pres: +averagePressure.toFixed(1),
           date,
         };
         currentWeatherArr.push(tempObj);
@@ -98,6 +99,7 @@ export const WeatherBox = ({ weather }) => {
   return (
     <WeatherContainer>
       <CheckBox handleChange={handleChange} currentUnit={currentUnit} />
+      <City handleCity={handleCity} cities={cities} city={city} />
       <Pagination pageSize={3} data={dayAverages} />
       <VerticalChart />
     </WeatherContainer>

@@ -6,7 +6,7 @@ import { correctUnit } from "../../helpers";
 export const Bar = ({ x, y, width, time, unit, height }) => {
   const yOffset = unit === "celsius" ? 20 : 25;
   // scale down to actual height values
-  const actualHeight = unit === "celsius" ? height / 25 : height / 5;
+  const actualHeight = unit === "celsius" ? height * 0.2 : height / 2;
   return (
     <React.Fragment>
       <text x={x + width / 30} y={y - 20} className='temp'>
