@@ -1,6 +1,7 @@
 // test-utils.js
 import React from "react";
 import { render as rtlRender } from "@testing-library/react";
+
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import reducer from "./store/reducers";
@@ -68,7 +69,7 @@ export const mockItems = [
     time: " 15:00:00",
   },
 ];
-export const cities = [
+export const mockCities = [
   { id: 1, name: "Berlin" },
   { id: 2, name: "Cologne" },
   { id: 3, name: "Dortmund" },

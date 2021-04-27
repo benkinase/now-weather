@@ -1,11 +1,11 @@
-import { render, mockData, cities } from "../../test-utils";
+import { render, mockData, mockCities } from "../../test-utils";
 import { WeatherBox } from "./index";
 
 const props = {
   weather: mockData,
-  cities: cities,
-  city: cities[0].name,
-  handleChange: jest.fn(),
+  cities: mockCities,
+  city: mockCities[0].name,
+  handleCity: jest.fn(),
 };
 
 describe("WeatherBox Test Suite", () => {
