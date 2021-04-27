@@ -68,7 +68,7 @@ export const mockItems = [
     time: " 15:00:00",
   },
 ];
-export const cities = [
+export const mockCities = [
   { id: 1, name: "Berlin" },
   { id: 2, name: "Cologne" },
   { id: 3, name: "Dortmund" },

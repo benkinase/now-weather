@@ -57,7 +57,6 @@ export const mainCities = [
 // API URL
 
 export const axiosAPI = (city) => {
-  console.log(city);
   return axios.get(
     `https://api.openweathermap.org/data/2.5/forecast?q=${city},de&units=imperial&APPID=${process.env.REACT_APP_KEY}&cnt=40`
   );
