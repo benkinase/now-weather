@@ -5,7 +5,7 @@ const props = {
   weather: mockData,
   cities: mockCities,
   city: mockCities[0].name,
-  handleChange: jest.fn(),
+  handleCity: jest.fn(),
 };
 
 describe("WeatherBox Test Suite", () => {
