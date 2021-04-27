@@ -1,5 +1,5 @@
-import { render, screen, mockCities } from "../../test-utils";
-import { userEvent } from "@testing-library/user-event";
+import { render, mockCities } from "../../test-utils";
+
 import { City } from "./index";
 import "@testing-library/jest-dom";
 
