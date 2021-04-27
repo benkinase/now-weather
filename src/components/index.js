@@ -8,4 +8,4 @@ export {
 } from "./Containers";
 
 export { WeatherContainer, CustomContainer } from "./Weather";
-export { Label, Paragraph, Card } from "./Elements";
+export { Label, Paragraph, StyledCard } from "./Elements";

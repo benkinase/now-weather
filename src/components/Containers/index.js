@@ -20,7 +20,6 @@ export const slideUp = keyframes`
   }
 `;
 
-
 export const Wrapper = styled.div``;
 
 // app root container
@@ -29,7 +28,7 @@ export const AppContainer = styled(Wrapper)`
 `;
 
 // custom Bar chart container
-export const BarChartContainer = styled.(Wrapper)`
+export const BarChartContainer = styled(Wrapper)`
   width: 85%;
   height: 350px;
   margin: auto;
@@ -60,7 +59,6 @@ export const BarChartContainer = styled.(Wrapper)`
     }
   }
 `;
-
 
 export const CitySelect = styled(Wrapper)`
   display: flex;
