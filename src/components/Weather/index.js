@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Paragraph } from "../Paragraph";
+import { Paragraph } from "../Elements";
 
 // custom weather display container
 export const StyledWeather = styled.div`

@@ -1,15 +1,13 @@
 import { actionTypes as Action } from "../../actionTypes";
-import axios from "axios";
+import { openWeatherDataFormatter, groupBy, axiosAPI } from "../../../helpers";
 
-import { openWeatherDataFormatter, groupBy, API_URL } from "../../../helpers";
-
-export const fetchOpenWeatherData = () => async (dispatch) => {
+export const fetchOpenWeatherData = (city) => async (dispatch) => {
   dispatch({
     type: Action.GET_WEATHER_REQUEST,
-    payload: {},
+    payload: { city },
   });
   try {
-    const { data } = await axios.get(API_URL);
+    const { data } = await axiosAPI(city);
     const formattedData = openWeatherDataFormatter(data);
     const groupDataByDate = groupBy("day");
     const groupedWeatherInfo = groupDataByDate(formattedData);

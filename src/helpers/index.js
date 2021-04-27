@@ -1,3 +1,4 @@
+import axios from "axios";
 // kelvin to fahrenheit
 export function convertToFahrenheit(temp) {
   return 1.8(temp - 273) + 32;
@@ -45,5 +46,19 @@ export function groupBy(key) {
     }, {});
   };
 }
+// cities
+export const mainCities = [
+  { id: 1, name: "Berlin" },
+  { id: 2, name: "Cologne" },
+  { id: 3, name: "Dortmund" },
+  { id: 4, name: "Essen" },
+  { id: 5, name: "Munich" },
+];
 // API URL
-export const API_URL = `https://api.openweathermap.org/data/2.5/forecast?q=Berlin,de&units=imperial&APPID=${process.env.REACT_APP_KEY}&cnt=40`;
+
+export const axiosAPI = (city) => {
+  console.log(city);
+  return axios.get(
+    `https://api.openweathermap.org/data/2.5/forecast?q=${city},de&units=imperial&APPID=${process.env.REACT_APP_KEY}&cnt=40`
+  );
+};

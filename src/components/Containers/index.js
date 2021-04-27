@@ -1,7 +1,26 @@
 import styled from "styled-components";
 
+export const Wrapper = styled.div``;
+
+// app root container
+export const AppContainer = styled(Wrapper)`
+  margin: 5rem auto;
+`;
+
+export const CitySelect = styled(Wrapper)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media (max-width: 700px) {
+    option,
+    select {
+      font-size: 12px;
+    }
+  }
+`;
+
 // reusable flex container
-export const FlexContainer = styled.div`
+export const FlexContainer = styled(Wrapper)`
   display: flex;
   justify-content: ${(props) => props.space};
   align-items: center;
@@ -25,4 +44,10 @@ export const FlexContainer = styled.div`
     border-radius: 50%;
     padding: 3px;
   }
+`;
+
+export const GridContainer = styled(Wrapper)`
+  display: grid;
+  grid-template-columns: ${(props) => props.gridColumns};
+  column-gap: 10px;
 `;

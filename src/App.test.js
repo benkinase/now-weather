@@ -1,6 +1,6 @@
 import React from "react";
 // Using the custom render function
-import { render, screen, mockData } from "./test-utils";
+import { render } from "./test-utils";
 import App from "./App";
 
 describe("App Test Suite", () => {

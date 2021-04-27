@@ -1,8 +1,11 @@
-export { Paragraph } from "./Paragraph";
-export { FlexContainer } from "./Flex";
+export {
+  FlexContainer,
+  GridContainer,
+  AppContainer,
+  Wrapper,
+  CitySelect,
+} from "./Containers";
 export { StyledCard } from "./Card";
 export { BarChartContainer } from "./BarChart";
 export { WeatherContainer, CustomContainer } from "./Weather";
-export { AppContainer, Wrapper } from "./Main";
-export { Label } from "./Label";
-export { GridContainer } from "./Grid";
+export { Label, Paragraph } from "./Elements";
